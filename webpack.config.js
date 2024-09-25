@@ -3,7 +3,7 @@ const {CleanWebpack, CleanWebpackPlugin} = require('clean-webpack-plugin')
 const HTMLWebpack = require('html-webpack-plugin')
 module.exports = {
     mode : "development",
-    entry: "./src/index.js",
+    entry: ["@babel/polyfill","./src/index.tsx"],
     output: {
         path: path.resolve(__dirname,"dist"),
         filename: "[name].[fullhash].js",
@@ -12,6 +12,9 @@ module.exports = {
         port:8080,
 
     },
+    resolve: {
+        extensions: ['.tsx', '.ts', '.js'],
+    },
     plugins: [
         new HTMLWebpack({template:"./src/index.html"}),
         new CleanWebpackPlugin(),
@@ -19,17 +22,14 @@ module.exports = {
     module: {
         rules:[
         {
-            test: /\.m?js$/,
+            test: /\.tsx?$/,
+            use: 'ts-loader',
             exclude: /node_modules/,
-            use: {
-                loader: "babel-loader",
-                options: {
-                presets: [
-                    '@babel/preset-env',
-                    "@babel/preset-react"
-                ]
-                }
-            }
+        },
+        {
+            test: /\.m?js|jsx$/,
+            exclude: /node_modules/,
+            use: ["babel-loader"]
         },
         {
             test: /\.(css|less)$/ ,

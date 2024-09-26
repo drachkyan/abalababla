@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import { Outlet } from 'react-router-dom'
 
 export const App = () =>{
     return (
-        <h1>
-            hello world
+        <div>
+            <h1>
+            main page
         </h1>
+
+        <Outlet />
+        </div>
     )
 }

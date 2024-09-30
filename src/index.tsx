@@ -2,7 +2,7 @@ import "./style.less"
 import React from 'react';
 import {createRoot} from 'react-dom/client'
 import {App} from './components/app'
-import {Task} from './components/pages/task/task'
+import Task from './components/pages/task/taskComp/task'
 import {
     createBrowserRouter,
     RouterProvider,

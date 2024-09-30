@@ -1,15 +1,15 @@
 import "./style.less"
 import React from 'react';
+import { lazy } from 'react';
 import {createRoot} from 'react-dom/client'
 import {App} from './components/app'
-import Task from './components/pages/task/taskComp/task'
 import {
     createBrowserRouter,
     RouterProvider,
   } from "react-router-dom";
-import { Profile } from "./components/pages/profile/profile";
-import { TaskList } from "./components/pages/task/taskList";
-
+const Task = lazy(() => import('./components/pages/task/taskComp/task'));
+const Profile = lazy(() => import("./components/pages/profile/profile"));
+const TaskList = lazy(() => import("./components/pages/task/taskList/taskList"));
 const root:HTMLElement = document.getElementById("root");
 
 let a:number = 5;

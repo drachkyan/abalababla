@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkfront=self.webpackChunkfront||[]).push([[651],{651:(e,t,l)=>{l.r(t),l.d(t,{default:()=>r});var n=l(6540);const r=()=>n.createElement("h1",null,"profile")}}]);
